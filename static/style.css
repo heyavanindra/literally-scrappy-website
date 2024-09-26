@@ -88,6 +88,22 @@ tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.titlepage {
+    font-size: 4rem; /* A more precise font size */
+    font-weight: 600; /* Increase weight for better readability */
+    text-align: center;
+    font-family: 'Poppins', sans-serif; /* A modern, clean font */
+    letter-spacing: 2px; /* Slight spacing between letters */
+    color: #28a745; /* Neutral dark color */
+    margin: 20px 0; /* Space around the title */
+    text-transform: uppercase; /* Makes the text all uppercase */
+    background: linear-gradient(90deg, #28a745, #3a5f0f); /* Gradient text effect */
+    -webkit-background-clip: text; /* Clip background to text */
+    -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+
 /* Flash message styling */
 .flash-msg {
     color: red;
@@ -110,7 +126,7 @@ tr:nth-child(even) {
     margin-bottom: 15px;
     text-align: center;
 }
-
+.title
 /* Responsive design for mobile devices */
 @media (max-width: 600px) {
     form {
