@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Pickup</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Schedule a Pickup</h1>
+    <form action="/schedule" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Address:</label><br>
+        <input type="text" name="address" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Contact:</label><br>
+        <input type="text" name="contact" required><br><br>
+
+        <label>Date:</label><br>
+        <input type="date" name="date" required><br><br>
+
+        <label>Time:</label><br>
+        <input type="time" name="time" required><br><br>
+
+        <label>Description of Item:</label><br>
+        <textarea name="description" required></textarea><br><br>
+
+        <label>Weight of Item (kg):</label><br>
+        <input type="number" name="weight" step="0.1" required><br><br>
+
+        <input type="submit" value="Schedule Pickup">
+    </form>
+
+    <!-- Centering the Check Pickup Status section -->
+    <div class="check-status-container">
+        <h2>Check Pickup Status</h2>
+        <form action="/check_status" method="POST">
+            <label for="email">Enter Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <input type="submit" value="Check Status">
+        </form>
+    </div>
+
+    <br>
+    <div style="text-align: center;">
+        <h2>Admin Access</h2>
+        <form action="/admin_login" method="POST">
+            <label for="admin_key">Enter Admin Key:</label><br>
+            <input type="password" id="admin_key" name="admin_key" required><br><br>
+            <input type="submit" value="Go to Admin Page">
+        </form>
+    </div>
+</body>
+</html>

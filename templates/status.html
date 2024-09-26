@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickup Status</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Pickup Status</h1>
+    {% if pickup %}
+        <p>Name: {{ pickup[0] }}</p>
+        <p>Date: {{ pickup[1] }}</p>
+        <p>Time: {{ pickup[2] }}</p>
+        <p>Status: {{ pickup[3] }}</p>
+        {% if pickup[4] %}
+            <p>Completed Time: {{ pickup[4] }}</p>
+        {% endif %}
+    {% else %}
+        <p>No pickup found for this email.</p>
+    {% endif %}
+    <br>
+    <a href="/">Go back to Home</a>
+</body>
+</html>

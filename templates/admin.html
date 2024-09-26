@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Scheduled Pickups</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Scheduled Pickups</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-msg">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Description</th>
+            <th>Weight</th>
+            <th>Status</th>
+            <th>Completed Time</th>
+            <th>Update Status</th>
+        </tr>
+        {% for pickup in pickups %}
+        <tr>
+            <td>{{ pickup[0] }}</td>
+            <td>{{ pickup[1] }}</td>
+            <td>{{ pickup[2] }}</td>
+            <td>{{ pickup[3] }}</td>
+            <td>{{ pickup[4] }}</td>
+            <td>{{ pickup[5] }}</td>
+            <td>{{ pickup[6] }}</td>
+            <td>{{ pickup[7] }}</td>
+            <td>{{ pickup[8] }}</td>
+            <td>{{ pickup[9] }}</td>
+            <td>
+                <form action="/update_status/{{ pickup[0] }}" method="POST">
+                    <select name="status">
+                        <option value="picked up">Picked Up</option>
+                        <option value="getting sorted">Getting Sorted</option>
+                        <option value="completed">Completed</option>
+                        <option value="recycled">Recycled</option>
+                    </select>
+                    <input type="text" name="completed_time" placeholder="Completion Time (YYYY-MM-DD HH:MM)" style="width: 150px;">
+                    <input type="submit" value="Update Status">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <h2>Clear All Entries</h2>
+    <form action="/clear" method="POST" onsubmit="return confirm('Are you sure you want to clear all entries?');">
+        <input type="submit" value="Clear Database">
+    </form>
+</body>
+</html>
