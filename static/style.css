@@ -126,18 +126,5 @@ tr:nth-child(even) {
     margin-bottom: 15px;
     text-align: center;
 }
-.title
+
 /* Responsive design for mobile devices */
-@media (max-width: 600px) {
-    form {
-        width: 90%;
-    }
-
-    table, th, td {
-        font-size: 0.85rem;
-    }
-
-    input[type="submit"] {
-        font-size: 1rem;
-    }
-}
